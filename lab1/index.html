@@ -6,22 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web-developer Mikanev A.A.</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li>Обо мне</li>
-                <li>Навыки</li>
-                <li>Технологии</li>
-            </ul>
-        </nav>
+    <header class="header">
+        <div class="container">
+
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="index.html">На главную</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="text-center">
+            <h1>Миканев А.Е.</h1>
+            <h2>Веб-разработчик</h2>
+            <p class="w-50 mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, dolor cupiditate ipsa consequatur aliquid debitis numquam dolorum, hic, distinctio vero quas sint saepe eveniet eaque velit quaerat! Aspernatur, cum eveniet!</p>
+            <a class="btn btn-contact" href="mailto:mikanev03@mail.ru">Написать мне</a>
+        </div>
     </header>
     <main>
-        <section>
-            <h3>Обо мне</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem, atque incidunt! Dolorem sit consectetur suscipit eveniet, et, natus accusantium earum, nisi quibusdam laboriosam quis soluta minima temporibus in veritatis. Cupiditate.</p>
-        </section>
+        <div class="container">
+            <section id="about">
+                <h3>Обо мне</h3>
+                <figure class="avatar">
+                    <img src="./images/person.png" alt="Actual me">
+                </figure>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem, atque incidunt! Dolorem sit consectetur suscipit eveniet, et, natus accusantium earum, nisi quibusdam laboriosam quis soluta minima temporibus in veritatis. Cupiditate.</p>
+                <a class="btn" href="about.html">Подробнее</a>
+            </section>
+            <section id="skills">
+                <h3>Навыки</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui maiores impedit mollitia asperiores culpa aspernatur dolore harum, officia nulla. Sint perferendis quos ducimus. Quasi aliquam cum reiciendis nam beatae aliquid.
+                Cum eius nam sapiente perferendis doloremque aliquid ad repellat magni maiores. Facere beatae assumenda, quo ut quibusdam fuga labore quod nostrum fugit, minima ullam hic error laudantium corrupti ea est?
+                Repellendus tempore vero minus autem? Recusandae earum eos laudantium vitae excepturi nemo sunt et quae. Quia dolorem magnam dolores magni distinctio odio voluptate ipsa nam est, vero expedita itaque! Dolorem!
+                Iste, eum. Facere consequuntur ipsa, repellat quisquam cumque quas aliquid quidem beatae sequi architecto. Veniam eligendi deleniti similique, quo qui dolore reprehenderit distinctio tenetur libero ex veritatis id ratione. Quidem?</p>
+            
+                <a class="btn" href="skills.html">Подробнее</a>
+            </section>
+            <section id="technologies">
+                <h3>Технологии</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus culpa, incidunt, harum illum repellat doloremque, modi soluta nostrum neque sequi ducimus alias voluptates! Ea placeat quas alias impedit iusto facere animi, nisi aliquid dolor quae, explicabo laboriosam voluptates ducimus pariatur non reiciendis modi. Adipisci, quibusdam. Et quae optio sunt. Optio fugiat quisquam corrupti officia doloremque!</p>
+                <ol>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Java Script</li>
+                    <li>Bootstrap</li>
+                </ol>
+                <a class="btn" href="technologies.html">Подробнее</a>          
+            </section>
+        </div>
     </main>
+    <footer class="footer">
+        <div class="container">
+            &copy; Миканев А.Е.
+        </div>
+    </footer>
 </body>
 </html>
