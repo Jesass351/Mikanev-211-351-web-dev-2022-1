@@ -1,0 +1,10 @@
+ul {
+    list-style-type: none; 
+    text-decoration: none
+}
+
+header {
+    font-size: large;
+    background-color: rgb(155, 155, 155);
+    color: aliceblue;
+}
