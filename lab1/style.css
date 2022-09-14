@@ -88,3 +88,13 @@ p {
     color: white;
     border-color: white;
 }
+
+th, td{
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+}
+
+table{
+    border-collapse: collapse;
+}
