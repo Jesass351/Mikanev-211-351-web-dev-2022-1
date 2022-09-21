@@ -1,12 +1,25 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+
 body{
     margin: 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::after{
+    content: "";
+    display: block;
+    height: 55px;
 }
 
 .header{
     background-color: lightgray;
-
     padding: 1rem 0;
     border-bottom: 5px solid #0885c6;
+    position: sticky;
+    top: 0;
 }
 
 .main-menu{
@@ -15,7 +28,18 @@ body{
 
 .main-menu ul li{
     display: inline;
+    margin-right: 0.625rem;
+}
 
+.main-menu ul li:last-child{
+    margin-right: 0;
+}
+
+.main-menu a, .profile a{
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .main-menu ul{
@@ -30,17 +54,131 @@ body{
     margin: 0 auto;
 }
 
-.btn{
+.btn-access{
+    margin: 7px;
     border-radius: 5px;
-    padding: 7px;
-    background-color: white;
-    border: 1px solid black;
+    padding: 10px;
+    background-color: #0885c6;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
 }
 
 .profile{
     float: right;
 }
 
-.clearfix{
+.clearfix::after{
+    content: "";
+    display: block;
     clear: both;
+}
+
+.sidebar{
+    float: left;
+    padding: 1rem 0;
+    width: 15rem;
+    position: sticky;
+    top: 55px;
+}
+
+.sidebar-section{
+    border: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1.25rem;
+}
+
+.sidebar-section legend{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.page-content{
+    padding: 1rem;
+    margin-left: 15rem;
+}
+
+.products-category-header{
+    margin-top: 0;
+}
+
+.product-card{
+    display: inline-block;
+    height: 22rem;
+    width: 31rem;
+    border: 2px solid #0885c6;
+    border-radius: 5px;
+    margin: 0 0.625rem 0.625rem 0;
+    background-color: rgb(216, 216, 216);
+}
+
+.product-image{
+    float: left;
+    height: 100%;
+    width: 50%;
+}
+
+.product-image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.product-details{
+    float: right;
+    height: 100%;
+    width: 50%;
+    padding: 1rem;
+}
+
+.product-details header{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.product-details .information{
+    text-align: justify;
+    font-size: 1.125rem;
+    height: 65%;
+    overflow: auto;
+}
+
+.product-details .control{
+    text-align: center;
+}
+
+.product-details .btn{
+    font-size: 1rem;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+}
+
+.product-details .btn span{
+    display: inline-block;
+    padding: 0.625rem 1.25rem;
+}
+
+.product-details .btn .price{
+    background-color: #333;
+}
+
+.product-details .btn .buy{
+    background-color: #0885c6;
+    font-weight: bold;
+}
+
+.footer{
+    background-color: lightgray;
+    padding: 1rem 0;
+    border-top: 5px solid #0885c6;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
