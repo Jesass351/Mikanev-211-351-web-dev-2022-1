@@ -4,5 +4,43 @@ body{
 
 .header{
     background-color: lightgray;
-    text-decoration: none;
+
+    padding: 1rem 0;
+    border-bottom: 5px solid #0885c6;
+}
+
+.main-menu{
+    float: left;
+}
+
+.main-menu ul li{
+    display: inline;
+
+}
+
+.main-menu ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+}
+
+.container{
+    max-width: 95%;
+    margin: 0 auto;
+}
+
+.btn{
+    border-radius: 5px;
+    padding: 7px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.profile{
+    float: right;
+}
+
+.clearfix{
+    clear: both;
 }

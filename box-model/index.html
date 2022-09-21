@@ -9,19 +9,80 @@
 </head>
 <body>
     <header class="header">
-        <nav>
-            <a href="">Главная</a>
-            <a href="">Каталог</a>
-            <a href="">Акции</a>
-            <a href="">Магазины</a>
-            <a href="">Контакты</a>
+        <div class="container">
 
-            
-        </nav>
-        <div>
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="">Главная</a></li>
+                    <li><a href="">Каталог</a></li>
+                    <li><a href="">Акции</a></li>
+                    <li><a href="">Магазины</a></li>
+                    <li><a href="">Контакты</a></li>
+                </ul>
+    
+                
+            </nav>
+        </div>
+        <div class="profile">
             <a href="">Вход</a>
         </div>
     </header>
+    <main>
+        <aside class="sidebar">
+            <form>
+                <fieldset>
+                    <legend>Производители</legend>
+                    <div>
+                        <input type="checkbox" value="manufacturer1" name="manufacturer" id="manufacturer1"><label for="manufacturer">Производитель 1</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" value="manufacturer2" name="manufacturer" id="manufacturer2"><label for="manufacturer">Производитель 2</label>
+                    </div>
+
+                    <div>
+
+                        <input type="checkbox" value="manufacturer3" name="manufacturer" id="manufacturer3"><label for="manufacturer">Производитель 3</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" value="manufacturer4" name="manufacturer" id="manufacturer4"><label for="manufacturer">Производитель 4</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" value="manufacturer5" name="manufacturer" id="manufacturer5"><label for="manufacturer">Производитель 5</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Группы товаров</legend>
+                    <div>
+                        <input type="radio" value="group1" name="group" id="group1"><label for="group1">Группа 1</label>
+                    </div>
+                    
+                    <div>
+                        <input type="radio" value="group2" name="group" id="group2"><label for="group2">Группа 2</label>
+                    </div>
+                    
+                    <div>
+                        <input type="radio" value="group3" name="group" id="group3"><label for="group3">Группа 3</label>
+                    </div>
+                    
+                    <div>
+                        <input type="radio" value="group4" name="group" id="group4"><label for="group4">Группа 4</label>
+                    </div>
+                    
+                    <div>
+                        <input type="radio" value="group5" name="group" id="group5"><label for="group5">Группа 5</label>
+                    </div>
+                </fieldset>
+                <button type="submit" class="btn">Применить</button>
+            </form>
+        </aside>
+
+        <div class="page-content">
+            <h1>Товары для дома</h1>
+        </div>
+    </main>
     
 </body>
 </html>
