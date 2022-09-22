@@ -31,6 +31,11 @@ body{
     margin: 0;
 }
 
+.container{
+    max-width: 75%;
+    margin: 0 auto;
+}
+
 .main-menu ul{
     list-style: none; 
     margin: 10px 0 0 0;
