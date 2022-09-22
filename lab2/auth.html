@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style_auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+    <title>Форма аутентификации</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="index.html">К выбору</a></li>
+                    <li><a href="feedback.html">Форма обратной связи</a></li>
+                    <li><a href="auth.html">Форма аутентификации</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="center">
+            <h1>Форма аутентификации</h1>
+        </div>
+        <div class="container-form">
+            <form action="http://httpbin.org/post" method="post" enctype="multipart/form-data">
+                <div>
+                    <input type="text"  class="form-input" name="login" id="login" placeholder="Login" required>
+                </div>
+    
+                <div>
+                    <input type="password" name="password" id="password" class="form-input" required
+                     placeholder="Password">
+                </div>
+    
+                <div>
+                    <input type="checkbox" name="rememberme" id="rememberme" class="form-input" value="true">
+                    <label for="rememberme">Запомнить меня</label>
+                </div>
+
+                <button type="submit" class="btn-enter">Войти</button>
+            </form>
+
+        </div>    
+
+
+    </main>
+    
+</body>
+</html>

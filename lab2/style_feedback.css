@@ -1,0 +1,78 @@
+
+.btn-send{
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 2px solid black;
+}
+
+.form-input{
+    background-color: white;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 10px 0;
+}
+
+.header {
+    padding: 10px 0;
+    font-size: 1rem;
+    font-weight:normal;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.main-menu ul{
+    list-style: none; 
+    margin: 10px 0 0 0;
+    padding: 0;
+
+}
+
+.main-menu li{
+    text-align: center;
+    margin-left: 15px;
+    padding: 5px;
+    display: inline;
+    border-bottom: 2px solid black;
+}
+
+.main-menu li:first-child{
+    margin-left: 0;
+}
+.main-menu a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+
+.container{
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+/* .feedback-form{
+    max-width: 90%;
+    margin: 0 20px;
+} */
+
+.feedback-form h1{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.feedback-form *{
+    margin-bottom: 1rem;
+}
+
+.feedback-form:last-child{
+    margin-bottom: 0;
+}
+
+.feedback-form textarea{
+    margin: 0;
+}
