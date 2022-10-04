@@ -29,11 +29,11 @@
             <form action="http://httpbin.org/post" method="post" enctype="multipart/form-data">
                 <div>
                     <label for="fio">ФИО</label> 
-                    <input type="text"  class="form-input" name="fio" placeholder="Иванов Иван Иванович" required>
+                    <input type="text"  class="form-input" id="fio" name="fio" placeholder="Иванов Иван Иванович" required>
                 </div>
     
                 <div>
-                    <label for="">e-mail</label> 
+                    <label for="email">e-mail</label> 
                     <input type="email" name="email" id="email" class="form-input" required
                      placeholder="exemple@mail.ru">
                 </div>
@@ -64,7 +64,7 @@
     
                 <div>
                     <label for="msg">Сообщение</label>
-                    <textarea name="msg" id="msg" cols="40" rows="10" class="form-input"></textarea>
+                    <textarea name="msg" id="msg" cols="40" rows="10" class="form-input" required></textarea>
                 </div>
     
     
