@@ -1,0 +1,23 @@
+@media print{
+    .sidebar, .scroll-to-top-btn, .header{
+        display: none;
+    }
+
+    .task-list{
+        justify-content: center;
+    }
+
+    .control .btn{
+        border: 1px solid black;
+        color: black;
+    }
+
+    .main-header{
+        text-align: center;
+    }
+
+    footer{
+        display: none;
+    }
+
+}
