@@ -1,0 +1,190 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body::after{
+    content: "";
+    display: block;
+    height: 55px;
+}
+
+.header{
+    background-color: #ff6600;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+}
+
+.main-menu ul li{
+    display: inline;
+    margin-right: 0.625rem;
+    color: white;
+}
+
+.main-menu ul li:last-child{
+    margin-right: 0;
+}
+
+.main-menu a, .profile a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.main-menu ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+}
+
+.container{
+    max-width: 95%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-done{
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #ff6600;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.sidebar{
+    padding: 1rem 0;
+    width: 80%;
+}
+
+.sidebar-section{
+    border: none;
+    margin-bottom: 5rem;
+    padding-bottom: 0;
+}
+
+.sidebar-section legend{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.page-content{
+    padding: 1rem;
+}
+
+.footer{
+    background-color: rgb(255, 255, 255);
+    padding: 1rem 0;
+    border-top: 5px solid #ff6600;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.profile{
+    margin-left: auto;
+}
+
+.calendar-input{
+    margin-top: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.ul-search{
+    padding: 0;
+}
+
+.ul-search label{
+    padding-left: 1rem;
+}
+
+.ul-search li{
+    list-style: none;
+    margin: 0.4rem;
+}
+
+.center{
+    text-align: center;
+}
+
+.textarea{
+    width: 100%;
+    height: 10rem;
+    margin-bottom: 3rem;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.main-header{
+    margin-bottom: 3rem;
+}
+
+@media all and (max-width: 768px){
+    .main-menu ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .direction-column{
+        flex-direction: column;
+    }
+
+    .profile{
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    main{
+        align-items: center;
+    }
+
+    .task-card{
+        flex-direction: column;
+        width: 100%;
+        max-width: 350px;
+        height: 100%;
+    }
+
+    .header{
+        position: static;
+    }
+
+    .sidebar-section {
+        border: none;
+        margin-bottom: 2rem;
+        padding-bottom: 0;
+    }
+
+    .textarea{
+        margin-bottom: 1rem;
+        padding-bottom: 0;
+    }
+    
+}
