@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Напоминалки</title>
+    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container d-flex direction-column">
+
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="main.html">Главная</a></li>
+                    <li><a href="add.html">Добавить</a></li>
+                </ul>
+            </nav>
+            <div class="profile">
+                <a href="index.html">Выход</a>
+            </div>
+        </div>
+    </header>
+    <main class="container d-flex direction-column">
+        <aside class="sidebar">
+            <form>
+                <fieldset class="sidebar-section">
+                    <legend class="center">Дата</legend>
+                    <input type="date" name="calendar" id="calendar" class="calendar-input">
+                </fieldset>
+                <fieldset class="sidebar-section">
+                    <legend class="center">Особые метки</legend>
+                    <ul class="ul-search">
+                        <li><input type="checkbox" name="name" id="name1"><label for="name1">Важное</label></li>
+                        <li><input type="checkbox" name="name" id="name2"><label for="name2">ВУЗ</label></li>
+                        <li><input type="checkbox" name="name" id="name3"><label for="name3">Работа</label></li>
+                        <li><input type="checkbox" name="name" id="name4"><label for="name4">Дом</label></li>
+                    </ul>
+                </fieldset>
+                <fieldset class="sidebar-section">
+                    <legend class="center">Статус</legend>
+                    <ul class="ul-search">
+                        <li><input type="checkbox" name="name" id="name5"><label for="name5">В работе</label></li>
+                        <li><input type="checkbox" name="name" id="name6"><label for="name6">Сделанные</label></li>
+                        <li><input type="checkbox" name="name" id="name7"><label for="name7">Сброшенные</label></li>
+                    </ul>
+                </fieldset>
+                <button type="submit" class="btn-search">Применить</button>
+            </form>
+        </aside>
+
+        <div class="page-content">
+            <h1 class="main-header">Задачи</h1>
+            <div class="task-list">
+                <div class="task-card">
+                    <div class="task-details">
+                        <header>01.10.2022</header>
+                        <p class="information">Покормить кота</p>
+                        <div class="control">
+                            <button class="btn">
+                                <span class="done">Готово</span><span class="ignore">Сброс</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-card">
+                    <div class="task-details">
+                        <header>02.10.2022</header>
+                        <p class="information">Сделать Веб</p>
+                        <div class="control">
+                            <button class="btn">
+                                <span class="done">Готово</span><span class="ignore">Сброс</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                    <div class="task-card">
+                        <div class="task-details">
+                        <header>02.10.2022</header>
+                        <p class="information">Сделать РГР по линалу</p>
+                        <div class="control">
+                            <button class="btn">
+                                <span class="done">Готово</span><span class="ignore">Сброс</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-card">
+                    <div class="task-details">
+                        <header>10.10.2022</header>
+                        <p class="information">Сделать красивое оформление</p>
+                        <div class="control">
+                            <button class="btn">
+                                <span class="done">Готово</span><span class="ignore">Сброс</span>
+                            </button>
+                        </div>
+                        </div>
+                </div>
+                <div class="task-card">
+                    <div class="task-details">
+                        <header>10.10.2022</header>
+                            <p class="information">Придумать текст 5ой карточки</p>
+                            <div class="control">
+                                <button class="btn">
+                                    <span class="done">Готово</span><span class="ignore">Сброс</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-details">
+                        <header>01.10.2022</header>
+                        <p class="information">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque assumenda velit quaerat officiis molestias eligendi minus ex pariatur aperiam voluptatibus! </p>
+                        <div class="control">
+                            <button class="btn">
+                                <span class="done">Готово</span><span class="ignore">Сброс</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            &copy; 2022 ООО «Зеленоглазое такси»
+        </div>
+    </footer>
+</body>
+</html>
