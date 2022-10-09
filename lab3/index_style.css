@@ -148,11 +148,6 @@ body::after{
     margin-top: 1rem;
 }
 
-button > a{
-    text-decoration: none;
-    color: white;
-}
-
 @media all and (max-width: 768px){
     .main-menu ul{
         display: flex;
