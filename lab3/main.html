@@ -18,7 +18,7 @@
 
             <nav class="main-menu">
                 <ul>
-                    <li><a href="main.html">Главная</a></li>
+                    <li><a href="main.html" class="active-tab">Главная</a></li>
                     <li><a href="add.html">Добавить</a></li>
                 </ul>
             </nav>
@@ -35,12 +35,13 @@
                     <input type="date" name="calendar" id="calendar" class="calendar-input">
                 </fieldset>
                 <fieldset class="sidebar-section">
+                    <!-- очень сомневаюсь по поводу эмоджи, но почему бы и нет -->
                     <legend class="center">Особые метки</legend>
                     <ul class="ul-search">
-                        <li><input type="checkbox" name="name" id="name1"><label for="name1">Важное</label></li>
-                        <li><input type="checkbox" name="name" id="name2"><label for="name2">ВУЗ</label></li>
-                        <li><input type="checkbox" name="name" id="name3"><label for="name3">Работа</label></li>
-                        <li><input type="checkbox" name="name" id="name4"><label for="name4">Дом</label></li>
+                        <li><input type="checkbox" name="name" id="name1"><label for="name1">Важное&nbsp;&#10071;</label></li>
+                        <li><input type="checkbox" name="name" id="name2"><label for="name2">ВУЗ&nbsp;&#127979;</label></li>
+                        <li><input type="checkbox" name="name" id="name3"><label for="name3">Работа&nbsp;&#127970;</label></li>
+                        <li><input type="checkbox" name="name" id="name4"><label for="name4">Дом&nbsp;&#127969;</label></li>
                     </ul>
                 </fieldset>
                 <fieldset class="sidebar-section">
@@ -56,11 +57,12 @@
         </aside>
 
         <div class="page-content">
-            <h1 class="main-header">Задачи</h1>
+            <h1 class="main-header center">Задачи</h1>
             <div class="task-list">
                 <div class="task-card">
                         <div class="task-details">
-                            <header>01.10.2022</header>
+                            <header>01.10.2022<span class="emoji">&nbsp;&#127969;&nbsp;&#10071;</span></header>
+                            
                             <p class="information">Покормить кота</p>
                             <div class="control">
                                 <button class="btn">
@@ -71,7 +73,7 @@
                 </div>
                 <div class="task-card">
                     <div class="task-details">
-                        <header>02.10.2022</header>
+                        <header>02.10.2022<span class="emoji">&nbsp;&#127979;&nbsp;&#10071;</span></header>
                         <p class="information">Сделать Веб</p>
                         <div class="control">
                             <button class="btn">
@@ -82,7 +84,7 @@
                 </div>
                     <div class="task-card">
                         <div class="task-details">
-                        <header>02.10.2022</header>
+                        <header>02.10.2022<span class="emoji">&nbsp;&#127979;&nbsp;&#10071;</span></header>
                         <p class="information">Сделать РГР по линалу</p>
                         <div class="control">
                             <button class="btn">
@@ -93,7 +95,7 @@
                 </div>
                 <div class="task-card">
                     <div class="task-details">
-                        <header>10.10.2022</header>
+                        <header>10.10.2022<span class="emoji">&nbsp;&#127979;</span></header>
                         <p class="information">Сделать красивое оформление</p>
                         <div class="control">
                             <button class="btn">
@@ -104,8 +106,8 @@
                 </div>
                 <div class="task-card">
                     <div class="task-details">
-                        <header>10.10.2022</header>
-                            <p class="information">Придумать текст 5ой карточки</p>
+                        <header>10.10.2025<span class="emoji">&nbsp;&#127970;</span></header>
+                            <p class="information">Найти работу (желательно не "Вкусно и точка"&nbsp;/&nbsp;уборщик...)</p>
                             <div class="control">
                                 <button class="btn">
                                     <span class="done">Готово</span><span class="ignore">Сброс</span>
@@ -115,7 +117,7 @@
                     </div>
                     <div class="task-card">
                         <div class="task-details">
-                        <header>01.10.2030</header>
+                        <header>01.10.2030<span class="emoji">&nbsp;&#127969;&nbsp;&#10071;</span></header>
                         <p class="information">Понять смысл жизни</p>
                         <div class="control">
                             <button class="btn">

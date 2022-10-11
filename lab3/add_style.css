@@ -143,11 +143,22 @@ body::after{
     margin-bottom: 3rem;
 }
 
+.active-tab{
+    padding: 0 5px 3px 5px;
+    border-bottom: 2px solid white;
+}
+
 @media all and (max-width: 768px){
+
+/* На странице добавления решил скрывать "Выход" для "маленьких" устройств */
+
     .main-menu ul{
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .main-menu ul li:first-child{
         margin-bottom: 1rem;
     }
 
@@ -156,9 +167,7 @@ body::after{
     }
 
     .profile{
-        margin-left: 0;
-        display: flex;
-        justify-content: center;
+        display: none;
     }
 
     main{
@@ -185,6 +194,10 @@ body::after{
     .textarea{
         margin-bottom: 1rem;
         padding-bottom: 0;
+    }
+
+    .ul-search li{
+        font-size: 1.2rem;
     }
     
 }
