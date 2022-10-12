@@ -9,4 +9,4 @@ function fibb(n){
 }
 
 console.log(fibb(5));
-console.log(fibb(10));
+console.log(fibb(100));
