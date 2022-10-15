@@ -47,16 +47,17 @@ function multyK(vectorA, k){
 }
 
 function length(vector){
-    return((vector.x**2+vector.y**2+vector.z**2)**0.5)
+    return ((vector.x**2+vector.y**2+vector.z**2)**0.5).toFixed(3);
 }
 
 function scalar(vectorA, vectorB){
     return(vectorA.x*vectorB.x+vectorA.y*vectorB.y+vectorA.z*vectorB.z);
 }
 
-console.log(length(vectorA).toFixed(2));
-console.log(sum(vectorA, vectorB));
-console.log(multy(vectorA, vectorB));
-console.log(diff(vectorA, vectorB));
-console.log(multyK(vectorA, 5));
-console.log(scalar(vectorA, vectorB));
+
+console.log(sum(vectorA, vectorB)); //+
+console.log(multy(vectorA, vectorB)); //+
+console.log(diff(vectorA, vectorB)); //+
+console.log(multyK(vectorA, 5)); //+
+console.log(length(vectorA)); //+
+console.log(scalar(vectorA, vectorB)); //+

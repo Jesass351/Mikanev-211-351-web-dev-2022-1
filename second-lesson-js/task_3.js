@@ -16,4 +16,8 @@ let matr=[
 ]
 
 console.log(task_3(matr));
+console.log(task_3([
+    [2,3,4], //2
+    [4,3,4], //3
+]));
 
