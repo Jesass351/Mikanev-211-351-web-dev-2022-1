@@ -1,38 +1,30 @@
-//Ответ на Ваше задание: "хакуна матата", ключ = 8
-// for (let i = 0; i <= 10; i++){
-//     console.log(cesar("эзтыхз фзъзъз",i,"decode") + "  ", i); 
-// }
 
-function cesar(str, shift, action){
-    //думал через .charCodeAt(), но там проблемы с "ё" и "Ё"
+
+function cesar(str, shift, action) {
+
     let result = "";
-    let alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя" //33
-    if (action == "encode"){
-        for (let character of str){
-            if (alphabet.indexOf(character.toLowerCase())>-1){
-                if (character == character.toUpperCase()){
+    let alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"; //33
+    if (action == "encode") {
+        for (let character of str) {
+            if (alphabet.indexOf(character.toLowerCase()) > -1) {
+                if (character == character.toUpperCase()) {
                     result += alphabet[(alphabet.indexOf(character.toLowerCase()) + shift) % 33].toUpperCase();
-                }
-                else {
+                } else {
                     result += alphabet[(alphabet.indexOf(character) + shift) % 33];
                 }
-            }
-            else{
+            } else {
                 result += character;
             }
         }
-    }
-    else if(action == "decode"){
-        for (let character of str){
-            if (alphabet.indexOf(character.toLowerCase())>-1){
-                if (character == character.toUpperCase()){
+    } else if (action == "decode") {
+        for (let character of str) {
+            if (alphabet.indexOf(character.toLowerCase()) > -1) {
+                if (character == character.toUpperCase()) {
                     result += alphabet.at((alphabet.indexOf(character.toLowerCase()) - shift) % 33).toUpperCase();
-                }
-                else {
+                } else {
                     result += alphabet.at((alphabet.indexOf(character) - shift) % 33);
                 }
-            }
-            else{
+            } else {
                 result += character;
             }
         }
@@ -43,17 +35,14 @@ function cesar(str, shift, action){
 
 console.log("<-------ТЕСТЫ------->");
 
-let encode = cesar("Привет!",31,"encode");
+let encode = cesar("Привет!", 31, "encode");
 console.log(encode);
 
-let decode = cesar(encode,31,"decode");
+let decode = cesar(encode, 31, "decode");
 console.log(decode);
 
-// let message = "Привет!";
-
-// for (let i = 0; i<100; i++){
-//     if (message != cesar(cesar(message,i,"encode"),i,"decode")){
-//         console.log(i);
-//     }
-// }
+//Ответ на Ваше задание: "хакуна матата", ключ = 8
+for (let i = 0; i <= 10; i++) {
+    console.log(cesar("эзтыхз фзъзъз", i, "decode") + "  ", i); 
+}
 
