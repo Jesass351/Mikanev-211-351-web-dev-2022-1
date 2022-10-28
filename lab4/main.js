@@ -145,7 +145,6 @@ const operators = {
 
 function evaluate(str) {
     let revPolNotation = compile(str);
-    console.log(revPolNotation);
 
     let stack = [];
 
