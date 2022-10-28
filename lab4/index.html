@@ -2,57 +2,24 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <script src="main.js" defer></script> 
+    <link rel="stylesheet" href="index_style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <title>Калькулятор</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+    <title>Главная страница</title>
 </head>
 <body>
-    <main>
-        <div>
-            <dialog id="overflowWarning">
-                <h1>Ячейка ввода и/или вывода переполнена</h1>
-                <button id="dialogCloser" class="btn">Ок</button>
-            </dialog>
+    <header class="header">
+        <div class="container">
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="tic-tac-toe/tictactoe.html">Крестики-нолики</a></li>
+                    <li><a href="calculator/calculator.html">Калькулятор</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="calc-container">
-            <div class="screen">
-                <h1 class="buttons_screen"></h1>
-                <h2 class="result_screen"></h2>
-            </div>
-            <div class="buttons">
-                <div class="digits">
-                    <button class="key digit">7</button>
-                    <button class="key digit">8</button>
-                    <button class="key digit">9</button>
-                    <button class="key digit">4</button>
-                    <button class="key digit">5</button>
-                    <button class="key digit">6</button>
-                    <button class="key digit">1</button>
-                    <button class="key digit">2</button>
-                    <button class="key digit">3</button>
-                    <button class="key digit">0</button>
-                    <button class="key digit">.</button>
-                </div>
-                <div class="other">
-                    <button class="key operation">+</button>
-                    <button class="key operation">-</button>
-                    <button class="key operation">*</button>
-                    <button class="key operation">/</button>
-                    <button class="key bracket">(</button>
-                    <button class="key bracket">)</button>
-                    <button class="key result">=</button>
-                    <button class="key clear">C</button>
-                </div>
-            </div>
-        </div>
-    </main> 
+    </header>
 </body>
 </html>

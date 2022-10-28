@@ -197,7 +197,7 @@ function showMessage(str, flag = 'output') {
     } else {
         if (str === str) { //проверка на NaN
             let messagesDiv = document.querySelector('.result_screen');
-            messagesDiv.innerHTML = str;
+            messagesDiv.innerHTML = '= ' + str;
         } 
     }
 }
@@ -251,10 +251,13 @@ function clickHandler(event) {
             return;
         }
         document.querySelector('.buttons_screen').classList.add('hide');
+
+        let result_screen = document.querySelector('.result_screen');
         if (result !== result) {
-            document.querySelector('.result_screen').innerHTML = 'Error';
+            result_screen.innerHTML = 'Ошибка';
         }
         document.querySelector('.result_screen').classList.add('bigger');
+        result_screen.innerHTML = result;
         calcMemory = "";
         return;
     }
