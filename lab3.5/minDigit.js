@@ -1,5 +1,13 @@
-function minDigit(x){
-    return Math.min.apply(Math,(Array.from(String(x), Number)));
+function minDigit(x) {
+    let array = String(x).split('');
+    for (let j = array.length - 1; j > 0; j--) {
+        for (let i = 0; i < j; i++) {
+            if (array[i] > array[i + 1]) {
+                [array[i], array[i + 1]] = [array[i + 1], array[i]];
+            }
+        }
+    }
+    return array[0];
 }
 
 console.log(minDigit(10)); //0

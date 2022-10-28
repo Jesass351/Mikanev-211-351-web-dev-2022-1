@@ -134,9 +134,32 @@ function compile(str) {
 // You need to implement this function
 // (https://en.wikipedia.org/wiki/Reverse_Polish_notation).
 
+
+//можно и switch case, но через объект и стрелочные прям красиво получилось
+const operators = {
+    '+': (x, y) => x + y,
+    '*': (x, y) => x * y,
+    '-': (x, y) => x - y,
+    '/': (x, y) => x / y,
+};
+
 function evaluate(str) {
-    return str;
-    // your code here
+    let revPolNotation = compile(str);
+    console.log(revPolNotation);
+
+    let stack = [];
+
+    for (let token of revPolNotation.split(' ')) {
+        if (token in operators) {
+            let [y, x] = [stack.pop(), stack.pop()];
+            stack.push(operators[token](x, y));
+        } else {
+            stack.push(parseFloat(token));
+        }
+    }
+
+    return stack.pop();
+
 }
 
 // Функция clickHandler предназначена для обработки 
@@ -165,90 +188,100 @@ function evaluate(str) {
 // Implement this function. Use the event delegation mechanism 
 // (https://javascript.info/event-delegation) so as not to set a 
 // handler for each button separately.
-let list = "";
 
-
-// Назначьте нужные обработчики событий.
-// ----------------------------------------------------------------------------
-// Set event handlers.
+let calcMemory = "";
 
 function showMessage(str, flag = 'output') {
-    if (flag == 'buttons') {
+    if (flag == 'button') {
         let messagesDiv = document.querySelector('.buttons_screen');
         messagesDiv.innerHTML += str;
     } else {
-        let messagesDiv = document.querySelector('.result_screen');
-        messagesDiv.innerHTML = str;
+        if (str === str) { //проверка на NaN
+            let messagesDiv = document.querySelector('.result_screen');
+            messagesDiv.innerHTML = str;
+        } 
     }
 }
 
 function eraseCalculations() {
     let result_screen = document.querySelector('.result_screen');
-    console.log(result_screen);
     result_screen.innerHTML = "";
     result_screen.classList.remove('bigger');
+
     let buttons_screen = document.querySelector('.buttons_screen');
-    console.log(buttons_screen);
     buttons_screen.innerHTML = "";
     buttons_screen.classList.remove('hide');
 }
 
-function checkShowBnt() {
+function checkDisplayOfBtns() {
     if (document.querySelector('.buttons_screen').classList.contains('hide')) {
         return true;
     } else false;
 }
 
-function resultIsEmpty() {
-    if (document.querySelector('.result_screen').innerHTML == '') {
-        return true;
-    } else return false;
+function dialogCloser() {
+    let dialogWarning = document.querySelector('#overflowWarning');
+    dialogWarning.close();
 }
 
+function showWarning() {
+    let dialogWarning = document.querySelector('#overflowWarning');
+    dialogWarning.showModal();
+}
+
+// Назначьте нужные обработчики событий.
+// ----------------------------------------------------------------------------
+// Set event handlers.
+
 function clickHandler(event) {
+
     if (!event.target.classList.contains('key')) {
         return;
     }
-    console.log(event.target.innerHTML);
 
     if (event.target.classList.contains('clear')) {
         eraseCalculations();
-        list = "";
+        calcMemory = "";
         return;
     }
 
     if (event.target.classList.contains('result')) {
+        let result = evaluate(calcMemory);
+        if (String(result).length > 11) {
+            showWarning();
+            return;
+        }
         document.querySelector('.buttons_screen').classList.add('hide');
         document.querySelector('.result_screen').classList.add('bigger');
-        showMessage(eval(list));
-        console.log(list);
-        list = "";
+        calcMemory = "";
         return;
     }
 
-
-    // скорее всего криво сделано, но работает! 
-    // Если вывод нажатых кнопок скрыт, но что-то 
-    // вводят то чистим калькулятор, тоесть готовим его к новым вычислениям
-    if (checkShowBnt()) {
+    if (checkDisplayOfBtns()) {
         eraseCalculations();
     }
-
-    console.log(resultIsEmpty());
     
-    list += event.target.innerHTML;
-    showMessage(event.target.innerHTML, 'buttons');
-    showMessage(eval(list));
+    if (calcMemory.length < 21) {
+        calcMemory += event.target.innerHTML;
+    } else {
+        showWarning();
+        return;
+    }
+    showMessage(event.target.innerHTML, 'button');
+    showMessage(evaluate(calcMemory));
 }
 
 window.onload = function () {
     eraseCalculations();
+
     let ourButtons = document.querySelector('.buttons');
     ourButtons.onclick = clickHandler;
-    console.log(ourButtons);
 
     let eraseCalculationsBtn = document.querySelector('.clear');
     eraseCalculationsBtn.onclick = eraseCalculations;
+
+    let dialogCloserBtn = document.querySelector('#dialogCloser');
+    dialogCloserBtn.onclick = dialogCloser;
 };
 
 

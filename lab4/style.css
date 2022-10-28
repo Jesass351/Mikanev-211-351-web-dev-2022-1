@@ -4,13 +4,14 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .calc-container {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    
     width: 480px;
     height: 480px;
     border: 2px solid black;
@@ -79,6 +80,7 @@ main {
 .key {
     text-align: center;
     font-size: 2rem;
+    font-weight: bold;
     margin: 5px;
     width: 80px;
     height: 80px;
@@ -86,5 +88,20 @@ main {
     border: 2px solid black;
     border-radius: 50%;
     box-sizing: border-box; 
+}
+
+#overflowWarning {
+    width: 500px;
+    text-align: center;
+}
+
+.btn {
+    color: black;
+    background-color: transparent;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-weight: bold;
 }
 

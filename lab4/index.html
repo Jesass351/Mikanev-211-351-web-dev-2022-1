@@ -7,7 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="main.js" defer></script> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -16,7 +17,10 @@
 <body>
     <main>
         <div>
-            <h1>Не переполняйте окно вывода пожалуйста</h1>
+            <dialog id="overflowWarning">
+                <h1>Ячейка ввода и/или вывода переполнена</h1>
+                <button id="dialogCloser" class="btn">Ок</button>
+            </dialog>
         </div>
         <div class="calc-container">
             <div class="screen">
@@ -49,6 +53,6 @@
                 </div>
             </div>
         </div>
-    </main>
+    </main> 
 </body>
 </html>
