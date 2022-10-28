@@ -251,6 +251,9 @@ function clickHandler(event) {
             return;
         }
         document.querySelector('.buttons_screen').classList.add('hide');
+        if (result !== result) {
+            document.querySelector('.result_screen').innerHTML = 'Error';
+        }
         document.querySelector('.result_screen').classList.add('bigger');
         calcMemory = "";
         return;
