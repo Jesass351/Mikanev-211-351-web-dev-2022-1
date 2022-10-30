@@ -216,6 +216,8 @@ function eraseCalculations() {
     let buttons_screen = document.querySelector('.buttons_screen');
     buttons_screen.innerHTML = "";
     buttons_screen.classList.remove('hide');
+
+    calcMemory = "";
 }
 
 function checkDisplayOfBtns() {
@@ -262,7 +264,6 @@ function clickHandler(event) {
             result_screen.innerHTML = 'Ошибка';
         }
         document.querySelector('.result_screen').classList.add('bigger');
-        result_screen.innerHTML = result;
         calcMemory = "";
         return;
     }
