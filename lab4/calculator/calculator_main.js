@@ -148,6 +148,7 @@ function evaluate(str) {
 
     let stack = [];
 
+
     for (let token of revPolNotation.split(' ')) {
         if (token in operators) {
             let [y, x] = [stack.pop(), stack.pop()];
@@ -157,7 +158,12 @@ function evaluate(str) {
         }
     }
 
-    return stack.pop();
+    if (stack[0] % 1 == 0) {   
+        return stack.pop();
+    } else {
+        return stack.pop().toFixed(2);
+    }
+    
 
 }
 
@@ -195,7 +201,7 @@ function showMessage(str, flag = 'output') {
         let messagesDiv = document.querySelector('.buttons_screen');
         messagesDiv.innerHTML += str;
     } else {
-        if (str === str) { //проверка на NaN
+        if (!isNaN(str)) { //проверка на NaN
             let messagesDiv = document.querySelector('.result_screen');
             messagesDiv.innerHTML = '= ' + str;
         } 
@@ -240,7 +246,6 @@ function clickHandler(event) {
 
     if (event.target.classList.contains('clear')) {
         eraseCalculations();
-        calcMemory = "";
         return;
     }
 
@@ -281,9 +286,6 @@ window.onload = function () {
 
     let ourButtons = document.querySelector('.buttons');
     ourButtons.onclick = clickHandler;
-
-    let eraseCalculationsBtn = document.querySelector('.clear');
-    eraseCalculationsBtn.onclick = eraseCalculations;
 
     let dialogCloserBtn = document.querySelector('#dialogCloser');
     dialogCloserBtn.onclick = dialogCloser;
