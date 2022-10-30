@@ -90,6 +90,10 @@ body {
     box-sizing: border-box; 
 }
 
+.key:active {
+    box-shadow: 0px 0px 2px 2px rgb(121, 121, 121) inset;
+}
+
 #overflowWarning {
     width: 500px;
     text-align: center;

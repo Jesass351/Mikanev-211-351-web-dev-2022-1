@@ -201,7 +201,7 @@ function showMessage(str, flag = 'output') {
         let messagesDiv = document.querySelector('.buttons_screen');
         messagesDiv.innerHTML += str;
     } else {
-        if (!isNaN(str)) { //проверка на NaN
+        if (!isNaN(str)) {
             let messagesDiv = document.querySelector('.result_screen');
             messagesDiv.innerHTML = '= ' + str;
         } 
