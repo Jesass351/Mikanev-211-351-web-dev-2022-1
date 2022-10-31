@@ -146,24 +146,22 @@ const operators = {
 function evaluate(str) {
     let revPolNotation = compile(str);
 
-    let stack = [];
-
+    let result = [];
 
     for (let token of revPolNotation.split(' ')) {
         if (token in operators) {
-            let [y, x] = [stack.pop(), stack.pop()];
-            stack.push(operators[token](x, y));
+            let [y, x] = [result.pop(), result.pop()];
+            result.push(operators[token](x, y));
         } else {
-            stack.push(parseFloat(token));
+            result.push(parseFloat(token));
         }
     }
 
-    if (stack[0] % 1 == 0) {   
-        return stack.pop();
+    if (result[0] % 1 == 0) {   
+        return result[0];
     } else {
-        return stack.pop().toFixed(2);
+        return result[0].toFixed(2);
     }
-    
 
 }
 
@@ -194,16 +192,12 @@ function evaluate(str) {
 // (https://javascript.info/event-delegation) so as not to set a 
 // handler for each button separately.
 
-let calcMemory = "";
-
-function showMessage(str, flag = 'output') {
+function showMessage(str, flag) {
     if (flag == 'button') {
-        let messagesDiv = document.querySelector('.buttons_screen');
-        messagesDiv.innerHTML += str;
-    } else {
+        document.querySelector('.buttons_screen').innerHTML += str;
+    } else if (flag == 'output') {
         if (!isNaN(str)) {
-            let messagesDiv = document.querySelector('.result_screen');
-            messagesDiv.innerHTML = '= ' + str;
+            document.querySelector('.result_screen').innerHTML = '= ' + str;
         } 
     }
 }
@@ -216,11 +210,9 @@ function eraseCalculations() {
     let buttons_screen = document.querySelector('.buttons_screen');
     buttons_screen.innerHTML = "";
     buttons_screen.classList.remove('hide');
-
-    calcMemory = "";
 }
 
-function checkDisplayOfBtns() {
+function checkDisplayingBtns() {
     if (document.querySelector('.buttons_screen').classList.contains('hide')) {
         return true;
     } else false;
@@ -242,6 +234,8 @@ function showWarning() {
 
 function clickHandler(event) {
 
+    let screen_data = document.querySelector('.buttons_screen').innerHTML;
+
     if (!event.target.classList.contains('key')) {
         return;
     }
@@ -252,34 +246,30 @@ function clickHandler(event) {
     }
 
     if (event.target.classList.contains('result')) {
-        let result = evaluate(calcMemory);
-        if (String(result).length > 11) {
+
+        if (String(evaluate(screen_data)).length > 11) {
             showWarning();
             return;
         }
-        document.querySelector('.buttons_screen').classList.add('hide');
 
-        let result_screen = document.querySelector('.result_screen');
-        if (result !== result) {
-            result_screen.innerHTML = 'Ошибка';
-        }
+        document.querySelector('.buttons_screen').classList.add('hide');
         document.querySelector('.result_screen').classList.add('bigger');
-        calcMemory = "";
+
         return;
     }
 
-    if (checkDisplayOfBtns()) {
+    if (checkDisplayingBtns()) {
         eraseCalculations();
     }
     
-    if (calcMemory.length < 21) {
-        calcMemory += event.target.innerHTML;
+    if (screen_data.length < 21) {
+        screen_data += event.target.innerHTML;
     } else {
         showWarning();
         return;
     }
     showMessage(event.target.innerHTML, 'button');
-    showMessage(evaluate(calcMemory));
+    showMessage(evaluate(screen_data), 'output');
 }
 
 window.onload = function () {
