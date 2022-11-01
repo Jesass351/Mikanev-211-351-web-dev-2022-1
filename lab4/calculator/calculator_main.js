@@ -165,6 +165,46 @@ function evaluate(str) {
 
 }
 
+//<------------------------------------------------------------------------------------------>
+//<------------------------------------------------------------------------------------------>
+//<------------------------------------------------------------------------------------------>
+//<------------------------------------------------------------------------------------------>
+
+const buttons_screen = document.querySelector('.buttons_screen');
+const result_screen = document.querySelector('.result_screen');
+
+function showMessage(str, flag) {
+    if (flag == 'button') {
+        buttons_screen.innerHTML += str;
+    } else if (flag == 'output') {
+        if (!isNaN(str)) {
+            result_screen.innerHTML = '= ' + str;
+        } 
+    }
+}
+
+function eraseCalculations() {
+    result_screen.innerHTML = "";
+    result_screen.classList.remove('bigger');
+
+    buttons_screen.innerHTML = "";
+    buttons_screen.classList.remove('hide');
+}
+
+function checkDisplayingBtns() {
+    if (buttons_screen.classList.contains('hide')) {
+        return true;
+    } else false;
+}
+
+function dialogCloser() {
+    document.querySelector('#overflowWarning').close();
+}
+
+function showWarning() {
+    document.querySelector('#overflowWarning').showModal();
+}
+
 // Функция clickHandler предназначена для обработки 
 // событий клика по кнопкам калькулятора. 
 // По нажатию на кнопки с классами digit, operation и bracket
@@ -192,84 +232,57 @@ function evaluate(str) {
 // (https://javascript.info/event-delegation) so as not to set a 
 // handler for each button separately.
 
-function showMessage(str, flag) {
-    if (flag == 'button') {
-        document.querySelector('.buttons_screen').innerHTML += str;
-    } else if (flag == 'output') {
-        if (!isNaN(str)) {
-            document.querySelector('.result_screen').innerHTML = '= ' + str;
-        } 
-    }
-}
-
-function eraseCalculations() {
-    let result_screen = document.querySelector('.result_screen');
-    result_screen.innerHTML = "";
-    result_screen.classList.remove('bigger');
-
-    let buttons_screen = document.querySelector('.buttons_screen');
-    buttons_screen.innerHTML = "";
-    buttons_screen.classList.remove('hide');
-}
-
-function checkDisplayingBtns() {
-    if (document.querySelector('.buttons_screen').classList.contains('hide')) {
-        return true;
-    } else false;
-}
-
-function dialogCloser() {
-    let dialogWarning = document.querySelector('#overflowWarning');
-    dialogWarning.close();
-}
-
-function showWarning() {
-    let dialogWarning = document.querySelector('#overflowWarning');
-    dialogWarning.showModal();
-}
-
 // Назначьте нужные обработчики событий.
 // ----------------------------------------------------------------------------
 // Set event handlers.
 
 function clickHandler(event) {
 
-    let screen_data = document.querySelector('.buttons_screen').innerHTML;
+    
 
+    //считываем только кнопки
     if (!event.target.classList.contains('key')) {
         return;
     }
 
+    //кнопочка очистки
     if (event.target.classList.contains('clear')) {
         eraseCalculations();
         return;
     }
 
+    //кнопочка "результат"
     if (event.target.classList.contains('result')) {
 
-        if (String(evaluate(screen_data)).length > 11) {
+        if (String(evaluate(buttons_screen.innerHTML)).length > 11) {
             showWarning();
             return;
         }
 
-        document.querySelector('.buttons_screen').classList.add('hide');
-        document.querySelector('.result_screen').classList.add('bigger');
+        buttons_screen.classList.add('hide');
+        result_screen.classList.add('bigger');
+
+        buttons_screen.innerHTML = "";
 
         return;
     }
 
+    //чтобы не нажимать "стереть" после каждого вызова "результат"
     if (checkDisplayingBtns()) {
         eraseCalculations();
     }
-    
-    if (screen_data.length < 21) {
-        screen_data += event.target.innerHTML;
-    } else {
+
+    //чтобы не переполнилось окно ввода
+    if (buttons_screen.innerHTML.length > 21) {
         showWarning();
         return;
     }
+
+    //вывод примера на верхний подэкран
     showMessage(event.target.innerHTML, 'button');
-    showMessage(evaluate(screen_data), 'output');
+
+    //вывод в "прямом эфире" результата примера с верхнего подэкрана
+    showMessage(evaluate(buttons_screen.innerHTML), 'output');
 }
 
 window.onload = function () {
