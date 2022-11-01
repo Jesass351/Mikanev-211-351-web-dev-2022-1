@@ -238,8 +238,6 @@ function showWarning() {
 
 function clickHandler(event) {
 
-    
-
     //считываем только кнопки
     if (!event.target.classList.contains('key')) {
         return;
@@ -254,7 +252,7 @@ function clickHandler(event) {
     //кнопочка "результат"
     if (event.target.classList.contains('result')) {
 
-        if (String(evaluate(buttons_screen.innerHTML)).length > 11) {
+        if (String(evaluate(buttons_screen.innerHTML)).length > 15) {
             showWarning();
             return;
         }

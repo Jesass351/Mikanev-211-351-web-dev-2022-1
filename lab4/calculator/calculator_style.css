@@ -43,7 +43,8 @@ body {
 
 .bigger {
     color: white;
-    font-size: 4rem;
+    font-size: 3rem;
+    margin: auto 5px;
 }
 
 .hide {
