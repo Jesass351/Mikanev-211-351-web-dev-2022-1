@@ -33,6 +33,10 @@ main {
     font-size: 70px;
     font-weight: bold;
     box-sizing: border-box; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
 
 .new-game-btn {
@@ -60,4 +64,8 @@ main {
     border-color: rgb(112, 14, 14);
     color: rgb(117, 6, 6);
     background-color: lightcoral;
+}
+
+.fa-circle {
+    font-size: 3.5rem;
 }

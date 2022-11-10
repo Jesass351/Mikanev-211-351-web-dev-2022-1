@@ -145,7 +145,7 @@ const operators = {
 
 function evaluate(str) {
     let revPolNotation = compile(str);
-
+    console.log(revPolNotation);
     let result = [];
 
     for (let token of revPolNotation.split(' ')) {

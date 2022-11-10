@@ -70,7 +70,7 @@ function clickHandler(event) {
         return;
     }
 
-    event.target.innerHTML = count % 2 == 0 ? "X" : "O";
+    event.target.innerHTML = count % 2 == 0 ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-regular fa-circle"></i>';
     count++;
     
     let winner = findWinner();
