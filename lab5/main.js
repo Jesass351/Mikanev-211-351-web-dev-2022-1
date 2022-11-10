@@ -113,13 +113,33 @@ function downloadData(page = 1, search = "") {
 }
 
 function searchAddHinst(hints) {
-    let hintsList = document.getElementById('search-list');
+    // let hintsList = document.getElementById('search-list');
+    // hintsList.innerHTML = "";
+    // for (let hint of hints) {
+    //     let option = document.createElement('option');
+    //     option.value = hint;
+    //     option.className = "search-list-option";
+    //     hintsList.append(option);
+    // }
+    let hintsList = document.getElementById('search-hints-list');
     hintsList.innerHTML = "";
+
+    console.log(hints.length);
+
+    if (hints.length == 0) {
+        hintsList.classList.add('hide');
+        document.querySelector('.search-field').classList.remove('hide-border-bottom');
+        return;
+    }
+
+    hintsList.classList.remove('hide');
+    document.querySelector('.search-field').classList.add('hide-border-bottom');
+
     for (let hint of hints) {
-        let option = document.createElement('option');
-        option.value = hint;
-        option.className = "search-list-option";
-        hintsList.append(option);
+        let option = document.createElement('p');
+        option.innerText = hint;
+        option.className = "search-hints-option";
+        hintsList.appendChild(option);
     }
 }
 
@@ -148,10 +168,22 @@ function pageBtnHandler(event) {
 
 function searchBtnHandler(event) {
     downloadData(1, document.querySelector('.search-field').value);
+    document.getElementById('search-hints-list').classList.add('hide');
+    document.querySelector('.search-field').classList.remove('hide-border-bottom');
+
 }
 
 function searchInputHandler(event) {
     downloadHintsData(document.querySelector('.search-field').value);
+}
+
+function hintApply(event) {
+    let inputField = document.querySelector('.search-field');
+    inputField.value = event.target.innerText;
+    inputField.classList.remove('hide-border-bottom');
+    
+    let hintsList = document.getElementById('search-hints-list');
+    hintsList.classList.add('hide');
 }
 
 window.onload = function () {
@@ -160,4 +192,5 @@ window.onload = function () {
     document.querySelector('.per-page-btn').onchange = perPageBtnHandler;
     document.querySelector('.search-btn').onclick = searchBtnHandler;
     document.querySelector('.search-field').oninput = searchInputHandler;
+    document.querySelector('#search-hints-list').onclick = hintApply;
 };
