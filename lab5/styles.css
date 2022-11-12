@@ -116,6 +116,7 @@ body {
     margin: 40px 0;
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .search-field {
@@ -126,7 +127,7 @@ body {
     padding: 0 20px;
     font-size: 100%;
     outline: none;
-    min-width: 100%;
+    width: 89%;
 }
 
 .search-btn {
@@ -140,6 +141,7 @@ body {
     outline: none;
     cursor: pointer;
     box-sizing: border-box;
+    width: 10%;
 }
 
 .search-btn:hover {
@@ -148,21 +150,18 @@ body {
 }
 
 .search-input-block {
-    width: 89%;
+    width: 90%;
 }
 
 #search-hints-list {
     background-color: white;
-    width: 85.1%;
     box-sizing: border-box;
     border: 5px solid #e63946;
     border-top: none;
-    position: absolute;
+    width: 90%;
 }
 
 .search-hints-option {
-    margin: 0;
-    padding-left: 1.3rem;
     height: 1.7rem;
     font-size: 1.1rem;
     cursor: pointer;
