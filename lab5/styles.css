@@ -158,13 +158,17 @@ body {
     box-sizing: border-box;
     border: 5px solid #e63946;
     border-top: none;
-    width: 90%;
+    position: absolute;
+    width: 900px;
+    top: 17.7%;
 }
 
 .search-hints-option {
     height: 1.7rem;
     font-size: 1.1rem;
     cursor: pointer;
+    margin: 0;
+    padding: 0.4rem 0 0.4rem 1.3rem;
 }
 
 .hide {
