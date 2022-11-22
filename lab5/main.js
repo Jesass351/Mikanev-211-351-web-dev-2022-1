@@ -161,7 +161,7 @@ function perPageBtnHandler(event) {
 
 function pageBtnHandler(event) {
     if (event.target.dataset.page) {
-        downloadData(event.target.dataset.page);
+        downloadData(event.target.dataset.page, document.querySelector('.search-field').value);
         window.scrollTo(0, 0);
     }
 }

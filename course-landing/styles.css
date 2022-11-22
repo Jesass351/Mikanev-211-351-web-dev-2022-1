@@ -1,0 +1,42 @@
+
+/*
+  #011627 -- nav-link
+  #011627 -- background dark
+  #83F3ED -- icons font color, heading-line
+*/
+
+
+.hero {
+  background-color: #eaecf0;
+}
+
+.call-to-action {
+  background-color: #011627;
+  color: white;
+}
+
+.heading-line {
+  width: 200px;
+  height: 3px;
+  background-color: #83F3ED;
+}
+
+.program .bi-code-slash {
+  font-size: 2rem;
+  color: #83F3ED;
+}
+
+.technologies img {
+  object-fit: cover;
+  height: 300px;
+}
+
+.technologies .row {
+  background-color: #011627;
+  color: #83F3ED;
+  font-weight: bold;
+}
+
+.technologies .row > * {
+  height: 300px;
+}
