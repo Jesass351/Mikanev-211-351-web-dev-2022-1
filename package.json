@@ -1,7 +1,6 @@
 {
   "name": "Mikanev-211-351-web-dev-2022-1",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +17,7 @@
   },
   "homepage": "https://github.com/Jesass351/Mikanev-211-351-web-dev-2022-1#readme",
   "devDependencies": {
-    "eslint": "^8.26.0"
-  }
+    "eslint": "^8.28.0"
+  },
+  "description": ""
 }
