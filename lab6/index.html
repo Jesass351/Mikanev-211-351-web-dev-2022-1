@@ -24,7 +24,7 @@
                             <a class="nav-link" href="#section-about">Об игре</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Персонажи и локации</a>
+                            <a class="nav-link" href="#carouselExampleIndicators">Персонажи и локации</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Технологии</a>
@@ -38,9 +38,68 @@
         </nav>
     </header>
     <section class="about" id="section-about">
-        <div class="row my-3">
-            <div class="col-md-6">logo</div>
-            <div class="col-md-6">about text</div>
+        <header class="text-center py-3">
+            <span class="border-bottom border-dark border-4 fs-2 fw-semibold">Об игре</span> 
+        </header>
+        <div class="row py-3">
+            <div class="col-sm-12 col-md-6">
+                <img class="img-fluid" src="images/logo_light.png" alt="">
+            </div>
+            <div class="col-sm-12 col-md-6 text-center d-flex align-items-center">
+                <span class="header-text">
+                    Synthadry - это "ЛОУ ПОЛИ ИГРА В СЕТТИНГЕ СИНТ ВЕЙВ/КИБЕРПАНК. ЖАНР РОГАЛИК. ЧУВАК БЕГАЕТ СРЕДИ НЕБОСКРЕБОВ. БОЕВКА В СТИЛЕ J RPG"
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="characters">
+        <header class="text-center py-3">
+            <span class="border-bottom border-dark border-4 fs-2 fw-semibold">Персонажи и локации</span> 
+        </header>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/characters/enemy1.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/characters/enemy2.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/characters/enemy3.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/levels/location_1.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/levels/location_2.png" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <section class="technologies">
+        <header class="text-center py-3">
+            <span class="border-bottom border-dark border-4 fs-2 fw-semibold">Технологии</span> 
+        </header>
+        <div class="row">
+            <div class="col-sm-12 col-md-4 text-center bg-light techno-col">
+
+            </div>
         </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
