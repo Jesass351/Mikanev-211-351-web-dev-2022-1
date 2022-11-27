@@ -6,13 +6,14 @@
     <title>Lab6</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 </head>
 <body>
     <header class="header">
-        <nav class="navbar navbar-expand-lg bg-light">
+        <nav class="navbar navbar-dark bg-black navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <span class="header-text">Synthadry</span>
+                    <span class="header-text text-light fs-2">Synthadry</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,16 +22,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#section-about">Об игре</a>
+                            <a class="nav-link text-light" href="#section-about">Об игре</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#carouselExampleIndicators">Персонажи и локации</a>
+                            <a class="nav-link text-light" href="#carouselExampleIndicators">Персонажи и локации</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Технологии</a>
+                            <a class="nav-link text-light" href="#section-technologies">Технологии</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Контакты</a>
+                            <a class="nav-link text-light" href="#section-feedback">Обратная связь</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#ection-contacts">Контакты</a>
                         </li>
                     </ul>
                 </div>
@@ -39,23 +43,38 @@
     </header>
     <section class="about" id="section-about">
         <header class="text-center py-3">
-            <span class="border-bottom border-dark border-4 fs-2 fw-semibold">Об игре</span> 
+            <span class="fs-2 fw-semibold">Об игре</span> 
         </header>
-        <div class="row py-3">
-            <div class="col-sm-12 col-md-6">
-                <img class="img-fluid" src="images/logo_light.png" alt="">
-            </div>
-            <div class="col-sm-12 col-md-6 text-center d-flex align-items-center">
-                <span class="header-text">
-                    Synthadry - это "ЛОУ ПОЛИ ИГРА В СЕТТИНГЕ СИНТ ВЕЙВ/КИБЕРПАНК. ЖАНР РОГАЛИК. ЧУВАК БЕГАЕТ СРЕДИ НЕБОСКРЕБОВ. БОЕВКА В СТИЛЕ J RPG"
-                </span>
+        <div class="container-fluid">
+            <div class="row py-3">
+                <div class="col-sm-12 col-md-6">
+                    <img class="img-fluid" src="images/logo_light.png" alt="">
+                </div>
+                <div class="col-sm-12 col-md-6 text-center d-flex align-items-center">
+                    <span class="header-text m-sm-4">
+                        Synthadry - это "ЛОУ ПОЛИ ИГРА В СЕТТИНГЕ СИНТ ВЕЙВ/КИБЕРПАНК. ЖАНР РОГАЛИК. ЧУВАК БЕГАЕТ СРЕДИ НЕБОСКРЕБОВ. БОЕВКА В СТИЛЕ J RPG"
+                    </span>
+                </div>
+                <div class="col-1sm-2 text-center mt-3">
+                    <span class="fs-4">Доступно для скачивания:</span>
+                    <div class="row mt-3">
+                        <div class="col-sm-6 mb-3">
+                            <p class="fs-4">Google Play&nbsp;<i class="bi bi-google-play"></i></p>
+                            <a href="" class="btn text-light bg-black p-3 w-50">Скачать</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="fs-4">GitHub&nbsp;<i class="bi bi-github"></i></p>
+                            <a href="" class="btn text-light bg-black p-3 w-50">Скачать</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="characters">
         <header class="text-center py-3">
-            <span class="border-bottom border-dark border-4 fs-2 fw-semibold">Персонажи и локации</span> 
+            <span class="fs-2 fw-semibold">Персонажи и локации</span> 
         </header>
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
             <div class="carousel-indicators">
@@ -92,16 +111,93 @@
             </button>
         </div>
     </section>
-    <section class="technologies">
+    <section class="technologies" id="section-technologies">
         <header class="text-center py-3">
-            <span class="border-bottom border-dark border-4 fs-2 fw-semibold">Технологии</span> 
+            <span class="fs-2 fw-semibold">Технологии</span> 
         </header>
-        <div class="row">
-            <div class="col-sm-12 col-md-4 text-center bg-light techno-col">
-
+        <div class="container-fluid">
+            <div class="row gradient rounded-4 m-2">
+                <div class="col-sm-12 col-md-6 offset-lg-2 col-lg-4 text-center py-3">
+                    <i class="bi bi-braces"></i>
+                    <h4>Unity 3D</h4>
+                    <p>Основная механика и логика игры</p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 text-center py-3">
+                    <i class="bi bi-brush"></i>
+                    <h4>Blender, Cinema 4D</h4>
+                    <p>Создание моделей окружения</p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2 col-lg-4 text-center py-3">
+                    <i class="bi bi-brush"></i>
+                    <h4>Maya</h4>
+                    <p>Создание игровых и внеигровых персонажей</p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 text-center py-3">
+                    <i class="bi bi-brush"></i>
+                    <h4>Mixamo</h4>
+                    <p>Создание анимаций для персонажей</p>
+                </div>
             </div>
         </div>
     </section>
+    <section class="feedback" id="section-feedback">
+        <header class="text-center py-3">
+            <span class="fs-2 fw-semibold">Обратная связь</span> 
+        </header>
+        <div class="container">
+            <form>
+                <div class="my-3">
+                    <label for="email-input" class="form-label">Электронная почта</label>
+                    <input type="email" class="form-control" id="email-input" placeholder="Ваш адрес электронной почты">
+                </div>
+                <div class="my-3">
+                    <label for="email-input" class="form-label">Как к Вам обращаться?</label>
+                    <input type="email" class="form-control" id="name-input" placeholder="Ваше имя">
+                </div>
+                <div class="my-3">
+                    <label for="email-input" class="form-label">Электронная почта</label>
+                    <textarea type="" class="form-control" id="message-input" placeholder="Ваше сообщение" rows="7"></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark p-2">Отправить</button>
+            </form>
+        </div>
+
+    </section>
+    <section class="contacts" id="section-contacts">
+        <header class="text-center py-3">
+            <span class="fs-2 fw-semibold">Контакты</span> 
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <p>Наш Discord: <a href="http://" target="_blank" rel="noopener noreferrer" class="text-info text-decoration-none">Synthadry</a></p>
+                    <p>Наш телеграмм: <a href="http://" target="_blank" rel="noopener noreferrer" class="text-info text-decoration-none">Synthadry</a></p>
+                    <p>Наш GitHub: <a href="https://github.com/Jesass351/Synthadry" target="_blank" class="text-info text-decoration-none">Synthadry</a></p>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A9a88e2bb6cee5ee2dc7d50e74fc840d91954baa37596ba304fc3de3c47ec9094&amp;source=constructor" width="100%" height="300px" frameborder="0"></iframe>
+                </div>
+                <div class="col-sm-12"></div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="bg-black">
+            <div class="d-flex justify-content-center mb-3 pt-3">
+                <a href="http://" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-light fs-2 mx-3"><i class="bi bi-github"></i></a>
+                <a href="http://" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-light fs-2"><i class="bi bi-telegram"></i></a>
+                <a href="http://" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-light fs-2 mx-3"><i class="bi bi-discord"></i></a>
+            </div>
+            <div class="d-flex align-items-center flex-column text-center">
+                <span class="header-text text-light fs-2">Synthadry</span>
+                    <a class="nav-link text-light" href="#section-about">Об игре</a>
+                    <a class="nav-link text-light" href="#carouselExampleIndicators">Персонажи и локации</a>
+                    <a class="nav-link text-light" href="#section-technologies">Технологии</a>
+                    <a class="nav-link text-light" href="#section-feedback">Обратная связь</a>
+                    <a class="nav-link text-light" href="#ection-contacts">Контакты</a>
+            </div>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
