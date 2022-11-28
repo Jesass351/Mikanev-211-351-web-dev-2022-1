@@ -8,9 +8,7 @@ body {
     font-family: 'UndertaleFont'!important;
 }
 
-.header-text {
-    font-weight: bold;
-    text-transform: uppercase;
+.letter-spacing-3 {
     letter-spacing: 3px;
 }
 

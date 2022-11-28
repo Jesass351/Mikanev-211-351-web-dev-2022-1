@@ -13,7 +13,7 @@
         <nav class="navbar navbar-dark bg-black navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <span class="header-text text-light fs-2">Synthadry</span>
+                    <span class="text-uppercase letter-spacing-3 text-light fs-2 fw-bold">Synthadry</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,13 +45,13 @@
         <header class="text-center py-3">
             <span class="fs-2 fw-semibold">Об игре</span> 
         </header>
-        <div class="container-fluid">
+        <div class="container-fluid py-3">
             <div class="row py-3">
                 <div class="col-sm-12 col-md-6">
                     <img class="img-fluid" src="images/logo_light.png" alt="">
                 </div>
                 <div class="col-sm-12 col-md-6 text-center d-flex align-items-center">
-                    <span class="header-text m-sm-4">
+                    <span class="text-uppercase letter-spacing-3 fw-bold m-sm-4">
                         Synthadry - это "ЛОУ ПОЛИ ИГРА В СЕТТИНГЕ СИНТ ВЕЙВ/КИБЕРПАНК. ЖАНР РОГАЛИК. ЧУВАК БЕГАЕТ СРЕДИ НЕБОСКРЕБОВ. БОЕВКА В СТИЛЕ J RPG"
                     </span>
                 </div>
@@ -60,11 +60,11 @@
                     <div class="row mt-3">
                         <div class="col-sm-6 mb-3">
                             <p class="fs-4">Google Play&nbsp;<i class="bi bi-google-play"></i></p>
-                            <a href="" class="btn text-light bg-black p-3 w-50">Скачать</a>
+                            <a href="" class="btn text-light bg-black p-3 w-50 gradient border-0">Скачать</a>
                         </div>
                         <div class="col-sm-6">
                             <p class="fs-4">GitHub&nbsp;<i class="bi bi-github"></i></p>
-                            <a href="" class="btn text-light bg-black p-3 w-50">Скачать</a>
+                            <a href="" class="btn text-light bg-black p-3 w-50 gradient border-0">Скачать</a>
                         </div>
                     </div>
                 </div>
@@ -115,24 +115,24 @@
         <header class="text-center py-3">
             <span class="fs-2 fw-semibold">Технологии</span> 
         </header>
-        <div class="container-fluid">
+        <div class="container py-3">
             <div class="row gradient rounded-4 m-2">
-                <div class="col-sm-12 col-md-6 offset-lg-2 col-lg-4 text-center py-3">
+                <div class="col-sm-12 col-md-6 text-center py-3">
                     <i class="bi bi-braces"></i>
                     <h4>Unity 3D</h4>
                     <p>Основная механика и логика игры</p>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 text-center py-3">
+                <div class="col-sm-12 col-md-6 text-center py-3">
                     <i class="bi bi-brush"></i>
                     <h4>Blender,Cinema 4D</h4>
                     <p>Создание моделей окружения</p>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2 col-lg-4 text-center py-3">
+                <div class="col-sm-12 col-md-6 text-center py-3">
                     <i class="bi bi-brush"></i>
                     <h4>Maya</h4>
                     <p>Создание игровых и внеигровых персонажей</p>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 text-center py-3">
+                <div class="col-sm-12 col-md-6 text-center py-3">
                     <i class="bi bi-brush"></i>
                     <h4>Mixamo</h4>
                     <p>Создание анимаций для персонажей</p>
@@ -144,19 +144,27 @@
         <header class="text-center py-3">
             <span class="fs-2 fw-semibold">Обратная связь</span> 
         </header>
-        <div class="container">
+        <div class="container py-3">
             <form>
                 <div class="my-3">
                     <label for="email-input" class="form-label">Электронная почта</label>
-                    <input type="email" class="form-control" id="email-input" placeholder="Ваш адрес электронной почты">
+                    <input type="email" class="form-control" id="email-input" placeholder="Ваш адрес электронной почты" required>
                 </div>
                 <div class="my-3">
-                    <label for="email-input" class="form-label">Как к Вам обращаться?</label>
-                    <input type="email" class="form-control" id="name-input" placeholder="Ваше имя">
+                    <label for="name-input" class="form-label">Как к Вам обращаться?</label>
+                    <input type="text" class="form-control" id="name-input" placeholder="Ваше имя" required>
                 </div>
                 <div class="my-3">
-                    <label for="email-input" class="form-label">Электронная почта</label>
-                    <textarea type="" class="form-control" id="message-input" placeholder="Ваше сообщение" rows="7"></textarea>
+                    <label for="email-input" class="form-label">Тип обращения</label>
+                    <select class="form-select" required>
+                        <option selected value="offer">Предложение</option>
+                        <option value="claim">Жалоба</option>
+                        <option value="other">Иное</option>
+                    </select>
+                </div>
+                <div class="my-3">
+                    <label for="message-input" class="form-label">Сообщение</label>
+                    <textarea type="text" class="form-control" id="message-input" placeholder="Ваше сообщение" rows="7" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-dark p-2">Отправить</button>
             </form>
@@ -167,7 +175,7 @@
         <header class="text-center py-3">
             <span class="fs-2 fw-semibold">Контакты</span> 
         </header>
-        <div class="container">
+        <div class="container py-3">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <p>Наш Discord: <a href="http://" target="_blank" rel="noopener noreferrer" class="text-info text-decoration-none">Synthadry</a></p>
@@ -175,26 +183,39 @@
                     <p>Наш GitHub: <a href="https://github.com/Jesass351/Synthadry" target="_blank" class="text-info text-decoration-none">Synthadry</a></p>
                 </div>
                 <div class="col-sm-12 col-md-6">
-                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A9a88e2bb6cee5ee2dc7d50e74fc840d91954baa37596ba304fc3de3c47ec9094&amp;source=constructor" width="100%" height="300px" frameborder="0"></iframe>
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A9a88e2bb6cee5ee2dc7d50e74fc840d91954baa37596ba304fc3de3c47ec9094&amp;source=constructor" width="100%" height="300px" frameborder="0" class="rounded-4"></iframe>
                 </div>
-                <div class="col-sm-12"></div>
             </div>
         </div>
     </section>
     <footer>
-        <div class="bg-black">
-            <div class="d-flex justify-content-center mb-3 pt-3">
-                <a href="http://" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-light fs-2 mx-3"><i class="bi bi-github"></i></a>
-                <a href="http://" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-light fs-2"><i class="bi bi-telegram"></i></a>
-                <a href="http://" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-light fs-2 mx-3"><i class="bi bi-discord"></i></a>
-            </div>
-            <div class="d-flex align-items-center flex-column text-center">
-                <span class="header-text text-light fs-2">Synthadry</span>
-                    <a class="nav-link text-light" href="#section-about">Об игре</a>
-                    <a class="nav-link text-light" href="#carouselExampleIndicators">Персонажи и локации</a>
-                    <a class="nav-link text-light" href="#section-technologies">Технологии</a>
-                    <a class="nav-link text-light" href="#section-feedback">Обратная связь</a>
-                    <a class="nav-link text-light" href="#section-contacts">Контакты</a>
+        <div class="container-fluid p-0">
+            <div class="bg-black text-center">
+                    <div class="d-flex justify-content-center pt-3">
+                        <a href="http://" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-light fs-1 mx-3"><i class="bi bi-github"></i></a>
+                        <a href="http://" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-light fs-1"><i class="bi bi-telegram"></i></a>
+                        <a href="http://" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-light fs-1 mx-3"><i class="bi bi-discord"></i></a>
+                    </div>
+                    <div class="d-flex flex-column align-items-center py-3">
+                        <span class="header-text text-light fs-2">Synthadry</span>
+                        <ul class="list-group list-group-horizontal-md">
+                            <li class="list-group-item bg-black">
+                                <a class="nav-link text-muted" href="#section-about">Об игре</a>
+                            </li>
+                            <li class="list-group-item bg-black">
+                                <a class="nav-link text-muted" href="#carouselExampleIndicators">Персонажи и локации</a>
+                            </li>
+                            <li class="list-group-item bg-black">
+                                <a class="nav-link text-muted" href="#section-technologies">Технологии</a>
+                            </li>
+                            <li class="list-group-item bg-black">
+                                <a class="nav-link text-muted" href="#section-feedback">Обратная связь</a>
+                            </li>
+                            <li class="list-group-item bg-black">
+                                <a class="nav-link text-muted" href="#section-contacts">Контакты</a>
+                            </li>
+                        </ul>
+                    </div>
             </div>
         </div>
     </footer>
