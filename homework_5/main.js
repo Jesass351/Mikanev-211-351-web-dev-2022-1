@@ -26,7 +26,7 @@ async function dataLoad() {
             if (maxId < task.id) maxId = task.id;
         }
     } catch(error) {
-        console.log(error.message);
+        showAlert(error.message);
     }
     counterTasks = maxId + 1;
 }
@@ -59,10 +59,10 @@ async function toggleTask(event) {
         let response = await fetch(finalURL);
         task = await response.json();
         if (task.error) {
-            console.log(task.error);
+            showAlert(task.error)
         }
     } catch (error) {
-        console.log(error.message);
+        showAlert(error.message);
     }
     
     let newStatus;
@@ -89,10 +89,10 @@ async function toggleTask(event) {
         console.log(dataFromForm.get("status"));
         let data = await res.json();
         if (data.error){
-            console.log(data.error);
+            showAlert(data.message);
         }
     } catch (error) {
-        console.log(error.message);
+        showAlert(error.message);
     }
     
 }
@@ -115,10 +115,10 @@ async function createTask(name, desc, status) {
         });
         data = await response.json();
         if (data.error) {
-            console.log(data.error);
+            showAlert(data.message);
         }
     } catch (error) {
-        console.log(error.message);
+        showAlert(error.message);
     }
     return data;
 }
@@ -145,15 +145,17 @@ async function clickBtnHandler(event) {
         try {
             let response = await fetch(finalURL, {
             method: 'PUT',
-            body: dataFromForm
+            body: dataFromForm,
             });
             let newTask = await response.json();
-            if (newTask.error) console.log(newTask.error);
+            if (newTask.error) {
+                showAlert(newTask.error);
+            }
             else {
                 document.getElementById(taskId).querySelector(".task-name").textContent = name;
             } 
         } catch (error) {
-            console.log(error.message);
+            showAlert(data.message);
         }
     }
     form.reset();
@@ -173,14 +175,14 @@ async function deleteEvent (event) {
         let response = await fetch(finalURL);
         let task = await response.json();
         if (task.error) {
-         console.log(task.error);
+            showAlert(task.error);
         }
         else {
             event.target.querySelector('span.deleteTask').textContent = task.name;
             event.target.querySelector('form').elements['taskid'].value = task.id;
         }
     } catch (error) {
-        console.log(error.message);
+        showAlert(error.message);
     }
 }
 
@@ -205,7 +207,7 @@ async function actionEvent(event) {
             form.elements['status'].value = task.status;
             form.elements['status'].closest('.row').classList.add('d-none');
         } catch (error) {
-            console.log(error.message);
+            showAlert(error.message)
             form.elements['status'].closest('.row').classList.add('d-none');
         }
     }
@@ -216,12 +218,12 @@ function deleteHandler(event) {
     let taskId = event.target.closest('.modal').querySelector('form').elements['taskid'].value;
     let finalURL = new URL(url + "/api/tasks/" + taskId);
     finalURL.searchParams.append("api_key", apiKey);
-    let res = fetch(finalURL, {
+    fetch(finalURL, {
         method: 'DELETE',
     }).then(response => {
         return response.json()
-    }).catch(reject => {
-        console.log(reject.message);
+    }).catch(error => {
+        showAlert(error.message);
     });   
     document.getElementById(taskId).remove();
 }
@@ -238,6 +240,24 @@ function closeModal(event) {
     name.classList.add('form-control');
     desc.classList.remove('form-control-plaintext');
     desc.classList.add('form-control');
+}
+
+function showAlert(error) {
+    let alerts = document.querySelector(".alerts");
+    let alert = document.createElement("div");
+    alert.classList.add("alert", "alert-dismissible", "alert-danger");
+    alert.setAttribute("role", "alert");
+    alert.append(error);
+
+    let btn = document.createElement("button");
+    btn.setAttribute("type", "button");
+    btn.classList.add("btn-close");
+    btn.setAttribute("data-bs-dismiss", "alert");
+    btn.setAttribute("aria-label", "Close");
+    alert.append(btn);
+    alerts.append(alert);
+
+
 }
 
 window.onload = function() {

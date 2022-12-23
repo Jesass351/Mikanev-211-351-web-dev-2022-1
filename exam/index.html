@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <title>ATravel</title>
+</head>
+<body>
+    <header class="header-navbar">
+        <nav class="navbar navbar-expand-lg bg-orange py-4">
+            <div class="container-fluid">
+                <img src="images/logo/logo_white.png" width="100px" height="100px" alt="" class="img-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <a class="navbar-brand fw-bold text-uppercase text-white fs-3" href="#">Atravel</a>
+                    </div>
+                    <div class="col-12">
+                        <span class="fw-bold text-white">Экскурсии по Москве</span> 
+                    </div>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav w-100">
+                    <li class="nav-item w-100">
+                        <a class="nav-link active fw-bold text-uppercase text-white text-end" aria-current="page" href="#">Панель администрирования</a>
+                    </li>
+                </ul>
+            
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="w-25 position-fixed bottom-0 end-0" id="alertsContainer"></div>
+
+    <section class="about-company my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center p-0">
+                    <img src="images/logo/logo_red.png"  width="200px" alt="" class="img-fluid">
+                </div>
+                <div class="col-md-8 justify-content-center p-0 text-center">
+                    <p class="fw-bold fs-5">ATravel</p>
+                    <span class="px-3 fs-5">Мы - ведущая компания по прогулкам в Москве. <span class="">С нами - на Лосиный остров, без нас - в лес.</span> 
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="route-list my-5">
+        <div class="container-fluid p-0">
+            <header class="fs-4 fw-bold text-center">
+                <span class="orange">Список пешеходных маршрутов</span>
+            </header>
+
+            <form action="" id="sortRouteForm" class="mt-3 container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-sm-6 col-md-4 mb-3">
+                        <input type="text" class="form-control" placeholder="Поиск по названию">
+                    </div>
+                    <div class="col-sm-6 col-md-4 mb-3">
+                        <select id="selectRouteForm" class="form-select">
+                            <option value="default" selected disabled>Основной объект</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </form>
+            <div class="container-fluid" id="mainRoutesTable">
+                <div class="row text-center p-0">
+                    <div class="col-3 p-0">
+                        <span class="orange fw-bold">Название</span>
+                    </div>
+                    <div class="col-3 p-0">
+                        <span class="orange fw-bold">Описание</span>
+                    </div>
+                    <div class="col-3 p-0">
+                        <span class="orange fw-bold">Основные объекты</span>
+                    </div>
+                    <div class="col-3 p-0">
+                        <span class="orange fw-bold">Выбрать</span>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination d-flex justify-content-center mt-5">
+                <button class="btn first-page-btn">Первая страница</button>
+                <div class="pages-btn">
+                    <button class="btn pagintaion" data-page="1">1</button>
+                    <button class="btn pagintaion" data-page="2">2</button>
+                    <button class="btn pagintaion" data-page="3">3</button>
+                </div>
+                <button class="btn last-page-btn">Последняя страница</button>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top flex-column">
+
+            <ul class="py-3 justify-content-center list-unstyled d-flex">
+                <li class="me-4"><a href="http://" target="_blank" rel="noopener noreferrer"><i class="bi bi-telegram text-muted fs-4"></i></a></li>
+                <li class="me-4"><a href="http://" target="_blank" rel="noopener noreferrer"><i class="bi bi-youtube text-muted fs-4"></i></a></li>
+                <li class="me-4"><a href="http://" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram text-muted fs-4"></i></a></li>
+                <li class=""><a href="http://" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp text-muted fs-4"></i></a></li>
+
+            </ul>
+
+            <div class="d-flex align-items-center">
+                <span class="mb-3 mb-md-0 text-muted">&copy; 2022 ATravel</span>
+            </div>
+
+            
+        </footer>
+    </div>
+    <button id="btn">dsds</button>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+</body>
+</html>
