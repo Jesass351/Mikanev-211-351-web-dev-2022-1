@@ -24,6 +24,7 @@ function showMessage(style, message) {
 }
 
 let allDataRoutes;
+let guidesData;
 
 async function getAllRoutes(page = 1) {
     finalURL = new URL(defaultURL + "/routes");
@@ -87,13 +88,21 @@ function addRoutesToMainTable(data, page = 1) {
         let selectBtnDiv = document.createElement("div");
         selectBtnDiv.classList.add("col-3", "mt-5","text-center", "border-end","p-0");
         let selectBtn = document.createElement('button');
-        selectBtn.classList.add("btn", "bg-orange", "text-white", "select-route", "p-1");
+        selectBtn.classList.add("btn", "border-orange", "text-orange", "select-route", "p-1");
         selectBtn.innerText = "Выбрать";
         selectBtn.setAttribute("data-routeId", record.id);
         selectBtn.addEventListener("click", () => {
+            getGuidesById(record.id).then(result => {
+                guidesData = result;
+                addGuidesToMainTable(result);
+                createDefaultFilters("selectLangGuideForm", "Язык экскурсии");
+                createDefaultFilters("selectExpGuideForm", "Опыт работы");
+                addOptionsToLangSelect(result);
+                addOptionsToWorkExpSelect(result);
+            })
             showAndGoGuides();
-            getGuidesById(record.id);
             setNameOfRoute(record.name);
+            document.querySelector("#routeNameGuideSection").setAttribute("data-id", record.id);
         });
         selectBtnDiv.appendChild(selectBtn);
         newRow.appendChild(selectBtnDiv);
@@ -221,16 +230,6 @@ async function getGuidesById(id) {
     try {
         let response = await fetch(finalURL);
         let data = await response.json();
-
-        document.querySelector("#searchGuideForm").reset();
-        
-        createFilter("selectLangGuideForm","Язык экскурсии")
-        createFilter("selectExpGuideForm","Опыт работы")
-    
-        addGuidesToMainTable(data);
-        addOptionsToLangSelect(data);
-        addOptionsToWorkExpSelect(data);
-
         return data;
     }
     catch(error) {
@@ -238,12 +237,58 @@ async function getGuidesById(id) {
     }
 }
 
-function createFilter(id, inner) {
+function searchGuidesByLangHandler(event) {
+    searchGuidesByFilters("lang",event.target.value);
+}
+
+function searchGuidesByExpHandler(event) {
+    searchGuidesByFilters("exp",event.target.value);
+}
+
+function searchGuidesByFilters() {
+    let routeId = document.querySelector("#routeNameGuideSection").getAttribute("data-id");
+    let workExp, language;
+    if(document.querySelector("#selectExpGuideForm").value != "default") {
+        workExp = document.querySelector("#selectExpGuideForm").value;
+    } else {
+        workExp = -1;
+    }
+
+    if(document.querySelector("#selectLangGuideForm").value != "default") {
+        language = document.querySelector("#selectLangGuideForm").value;
+    } else {
+        language = "";
+    }
+
+    getGuidesById(routeId).then(result => {
+        let resultArray = [];
+        if (workExp == -1) {
+            for (let record of result) {
+                console.log(workExp);
+                if (record.language.includes(language)) {
+                    resultArray.push(record);
+                }
+            }
+            addGuidesToMainTable(resultArray);
+            return;
+        }
+        for (let record of result) {
+            if (record.workExperience == workExp &&
+            record.language.includes(language)) {
+                resultArray.push(record);
+            }
+        }
+        addGuidesToMainTable(resultArray);
+    });
+}
+
+function createDefaultFilters(id, inner) {
     let filterSelect = document.querySelector(`#${id}`);
     filterSelect.innerHTML = "";
     let defaultOption = document.createElement("option");
     defaultOption.setAttribute("selected", "selected");
     defaultOption.setAttribute("disabled", "disabled");
+    defaultOption.setAttribute("value", "default");
     defaultOption.innerText = inner;
     filterSelect.appendChild(defaultOption);
 }
@@ -338,12 +383,41 @@ function addGuidesToMainTable(data) {
         let chooseBtn = document.createElement("input");
         chooseBtn.classList.add("form-check-input");
         chooseBtn.setAttribute("type", "checkbox");
-        chooseBtn.setAttribute("value", record.id);
+        chooseBtn.setAttribute("data-id", record.id);
         chooseBtnDiv.appendChild(chooseBtn);
         newRow.appendChild(chooseBtnDiv)
 
         mainGiudeTable.appendChild(newRow);
     }
+}
+
+
+async function actionEvent(event) {
+    let action = event.relatedTarget.dataset.action;
+    let form = event.target.querySelector('form');
+    let task;
+    form.elements['action'].value = action;
+    event.target.querySelector('.modal-title').textContent = titles[action];
+    event.target.querySelector('.create-btn').textContent = actionBtn[action];
+    if (action == 'edit') {
+        let taskId = event.relatedTarget.closest('.task').id;
+        let finalURL = new URL(url + "/api/tasks/" + taskId);
+        finalURL.searchParams.append("api_key", apiKey);
+        try {
+            let response = await fetch(finalURL);
+            task = await response.json();
+            if (task.error) console.log(task.error);
+            form.elements['name'].value = task.name;
+            form.elements['desc'].value = task.desc;
+            form.elements['taskId'].value = taskId;
+            form.elements['status'].value = task.status;
+            form.elements['status'].closest('.row').classList.add('d-none');
+        } catch (error) {
+            showAlert(error.message)
+            form.elements['status'].closest('.row').classList.add('d-none');
+        }
+    }
+
 }
 
 
@@ -361,14 +435,24 @@ window.onload = function (){
         showMessage("success", Date.now());
     })
 
-    let clearFiltersBtn = document.querySelector("#clearFiltersBtn");
-    clearFiltersBtn.addEventListener("click", () => {
-        document.querySelector("#sortRouteForm").reset();
+    let clearRoutesFiltersBtn = document.querySelector("#clearRoutesFiltersBtn");
+    clearRoutesFiltersBtn.addEventListener("click", () => {
+        document.querySelector("#searchRouteForm").reset();
         getAllRoutes();
-    })
+    });
 
-    // document.querySelectorAll(".select-route").onclick = console.log("dsds");
+    let clearGuidesFiltersBtn = document.querySelector("#clearGuidesFiltersBtn");
+    clearGuidesFiltersBtn.addEventListener("click", () => {
+        document.querySelector("#searchGuideForm").reset();
+        addGuidesToMainTable(guidesData);
+    });
+
     document.querySelector("#searchByNameInput").oninput = searchByNameInputHandler;
     document.querySelector("#selectRouteForm").onchange = searchRoutesByObjectsHandler;
+    document.querySelector("#selectLangGuideForm").onchange = searchGuidesByLangHandler;
+    document.querySelector("#selectExpGuideForm").onchange = searchGuidesByExpHandler;
 
+
+    let modalCreateOrder = document.querySelector('#createOrder');
+    modalCreateOrder.addEventListener('show.bs.modal', actionEvent);
 }
