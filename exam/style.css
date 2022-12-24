@@ -6,6 +6,10 @@
     background-color: orange !important;
 }
 
-.orange {
+.text-orange {
     color: orange !important;
+}
+
+.border-orange {
+    border-color: orange;
 }
