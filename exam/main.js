@@ -19,7 +19,7 @@ function showMessage(style, message) {
     alerts.append(alert);
 
     setTimeout(() => {
-        alert.classList.add("d-none");
+        alert.remove();
     },5000);
 }
 
@@ -381,9 +381,18 @@ function addGuidesToMainTable(data) {
         chooseBtnDiv.classList.add("col-2", "p-0");
 
         let chooseBtn = document.createElement("input");
-        chooseBtn.classList.add("form-check-input");
+        chooseBtn.classList.add("form-check-input", "guideCheckbox");
         chooseBtn.setAttribute("type", "checkbox");
         chooseBtn.setAttribute("data-id", record.id);
+        chooseBtn.setAttribute("data-name", record.name);
+        chooseBtn.addEventListener("click", () => {
+            let guideCheckboxList = document.querySelectorAll(".guideCheckbox");
+            for (let guideChecked of guideCheckboxList) {
+                guideChecked.checked = false;
+            }
+            chooseBtn.checked = true;
+        })
+
         chooseBtnDiv.appendChild(chooseBtn);
         newRow.appendChild(chooseBtnDiv)
 
@@ -391,36 +400,100 @@ function addGuidesToMainTable(data) {
     }
 }
 
+function openAddOrderModalHandler(event) {
 
-async function actionEvent(event) {
-    let action = event.relatedTarget.dataset.action;
-    let form = event.target.querySelector('form');
-    let task;
-    form.elements['action'].value = action;
-    event.target.querySelector('.modal-title').textContent = titles[action];
-    event.target.querySelector('.create-btn').textContent = actionBtn[action];
-    if (action == 'edit') {
-        let taskId = event.relatedTarget.closest('.task').id;
-        let finalURL = new URL(url + "/api/tasks/" + taskId);
-        finalURL.searchParams.append("api_key", apiKey);
-        try {
-            let response = await fetch(finalURL);
-            task = await response.json();
-            if (task.error) console.log(task.error);
-            form.elements['name'].value = task.name;
-            form.elements['desc'].value = task.desc;
-            form.elements['taskId'].value = taskId;
-            form.elements['status'].value = task.status;
-            form.elements['status'].closest('.row').classList.add('d-none');
-        } catch (error) {
-            showAlert(error.message)
-            form.elements['status'].closest('.row').classList.add('d-none');
+    if (!validateGuideSelection()) {
+        showMessage("warning", "Требуется выбрать гида");
+    } else {
+        let myModal = new bootstrap.Modal(document.querySelector("#addOrderFormModal"))
+        myModal.show();
+    }
+
+    setRouteNameToModal();
+    setGuideNameToModal(getCheckedGuide());
+
+    let formCreateOrder = document.querySelector("#modalForm");
+    formElements = formCreateOrder.elements;
+    let date = formElements["date"].value;
+    let time = formElements["time"].value;
+    let duration = formElements["duration"].value;
+    let persons = formElements["persons"].value;
+    
+
+    formCreateOrder.reset();
+}
+
+function setRouteNameToModal() {
+    let routeNameModal = document.querySelector("#routeNameModal");
+
+    let routeNameGuideSection = document.querySelector("#routeNameGuideSection");
+
+    routeNameModal.innerText = routeNameGuideSection.innerText;
+}
+
+function validateGuideSelection() {
+    let guideCheckboxList = document.querySelectorAll(".guideCheckbox");
+    let counter = 0;
+
+    for (let guideChecked of guideCheckboxList) {
+        if (guideChecked.checked) {
+            counter++;
         }
     }
 
+    if (counter == 0) {
+        return false;
+    } else return true;
 }
 
+function validateTime(event) {
+    time = document.querySelector("#time").value;
+    
+    if ((time.slice(3,5) == "00" || time.slice(3,5) == "30") &&
+    parseInt(time.slice(0,2), 10) >= 9 && parseInt(time.slice(0,2), 10) <= 23
+    ) {
+        return true;
+    } else {
+        invalidTimeMessage();
+        event.target.value = "09:00"
+        return false;
+    };
+}
 
+function invalidTimeMessage() {
+    let timeDivModal = document.querySelector("#timeDivModal");
+
+    let messageDiv = document.createElement("div");
+    messageDiv.classList.add("my-3", "p-1", "rounded-2", "bg-warning");
+
+    let message = document.createElement("span");
+    message.innerText = "Экскурсии возможны с 09:00 до 23:00 раз в 30 минут";
+    messageDiv.appendChild(message);
+
+    timeDivModal.appendChild(messageDiv);
+
+    setTimeout(() => {
+        messageDiv.remove();
+    },3000);
+}   
+
+function getCheckedGuide() {
+    let guideCheckboxList = document.querySelectorAll(".guideCheckbox");
+
+    let checkedGuide;
+
+    for (let guideChecked of guideCheckboxList) {
+        if (guideChecked.checked) {
+            checkedGuide = guideChecked.getAttribute("data-name");
+        }
+    }
+
+    return checkedGuide;
+}
+
+function setGuideNameToModal(name) {
+    document.querySelector("#guideNameModal").innerText = name;
+}
 
 window.onload = function (){
     createPaginationBtns();
@@ -453,6 +526,14 @@ window.onload = function (){
     document.querySelector("#selectExpGuideForm").onchange = searchGuidesByExpHandler;
 
 
-    let modalCreateOrder = document.querySelector('#createOrder');
-    modalCreateOrder.addEventListener('show.bs.modal', actionEvent);
+    // let modalCreateOrder = document.querySelector('#openAddOrderBtn');
+    // modalCreateOrder.addEventListener('show.bs.modal', addOrder);
+
+    let openAddOrderBtn = document.getElementById("openAddOrderBtn");
+    // openAddOrderBtn.addEventListener('show.bs.modal', openAddOrderModalHandler);
+    openAddOrderBtn.addEventListener('click', openAddOrderModalHandler);
+
+
+    let time = document.querySelector("#time");
+    time.oninput = validateTime;
 }

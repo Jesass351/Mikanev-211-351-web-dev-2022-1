@@ -39,7 +39,7 @@
         </nav>
     </header>
 
-    <div class="w-25 position-fixed bottom-0 end-0" id="alertsContainer"></div>
+    <div class="position-fixed bottom-0 end-0 m-3" id="alertsContainer"></div>
 
     <section class="about-company my-5">
         <div class="container">
@@ -128,10 +128,11 @@
                 </div> 
                 <div class="row">
                     <div class="col-12 mb-3">
-                        <button class="btn border-2 border-danger w-100" id="clearGuidesFiltersBtn"><i class="bi bi-x-lg"></i>&nbsp;Очистить</button>
+                        <button class="btn border-2 border-danger w-100" id="clearGuidesFiltersBtn"><i class="bi bi-x-lg"></i>&nbsp;Очистить выбор</button>
                     </div>
                 </div>
             </form>
+
             <div class="container-fluid">
                 <div class="row text-center p-0 overflow-hidden mb-3">
                     <div class="col-1 p-0">
@@ -155,93 +156,127 @@
                 </div>
                 <div class="container-fluid" id="mainGiudeTable"></div>
                 <div class="container-fluid d-flex justify-content-end">
-                    <button type="button" class="btn border-orange text-orange" data-bs-toggle="modal" data-bs-target="#modalAddOrder">Оформить</button>
+                    
+                    <!-- <button type="button" class="btn border-orange text-orange" id="openAddOrderBtn" data-bs-toggle="modal" data-bs-target="#addOrderFormModal">Оформить</button> -->
+                    <button type="button" class="btn border-orange text-orange" id="openAddOrderBtn">Оформить</button>
+
                 </div>
             </div>
+
         </div>
     </section>
 
 
     
     
-    <div class="modal fade" id="modalAddOrder" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Оформление заявки</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form>
-                <div class="mb-3">
-                    <div class="row">
-                        <div class="col-4">
-                            <span>Имя гида</span>
-                        </div>
-                        <div class="col-8">
-                            <span id="guideNameModal"></span>
-                        </div>
-                    </div>
+    <div class="modal fade" id="addOrderFormModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Оформление заявки</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
-                <div class="mb-3">
-                    <div class="row">
-                        <div class="col-4">
-                            <span>Название маршрута</span>
-                        </div>
-                        <div class="col-8">
-                            <span id="routeNameModal"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-4">
-                            <label for="date" class="">Дата экскурсии</label>
-                            <input type="date" class="form-control" name="date" id="date">
+                <div class="modal-body">
+                    <form id="modalForm">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-4">
+                                    <span id="guidesNameSpan">Имя гида</span>
+                                </div>
+                                <div class="col-8" id="guidesNameDivModal">
+                                    <span id="guideNameModal" class="text-orange fs-5"></span>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="col-sm-12 col-md-4">
-                            <label for="time" class="">Время начала</label>
-                            <input type="time" min="9:00" max="23:00" step="1800000" class="form-control" name="time" id="time">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-4">
+                                    <span>Название маршрута</span>
+                                </div>
+                                <div class="col-8">
+                                    <span id="routeNameModal" class="text-orange fs-5"></span>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="col-sm-12 col-md-4">
-                            <label for="duration" class="">Длительность экскурсии (часов)</label>
-                            <select id="duration" class="form-select">
-                                <option value="default" selected>1</option>
-                                <option value="default">1,5</option>
-                                <option value="default">2</option>
-                                <option value="default">2,5</option>
-                                <option value="default">3</option>
-                            </select>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4">
+                                    <label for="date" class="">Дата экскурсии</label>
+                                    <input type="date" class="form-control" name="date" id="date">
+                                </div>
+
+                                <div class="col-sm-12 col-md-4" id="timeDivModal">
+                                    <label for="time" class="">Время начала (с 09:00 до 23:00 раз в 30 минут)</label>
+                                    <input type="time" min="9:00" max="23:00" step="1800" value="09:00" class="form-control" name="time" id="time">
+                                </div>
+
+                                <div class="col-sm-12 col-md-4">
+                                    <label for="duration" class="">Длительность экскурсии (часов)</label>
+                                    <select id="duration" class="form-select">
+                                        <option value="default" selected>1</option>
+                                        <option value="default">1,5</option>
+                                        <option value="default">2</option>
+                                        <option value="default">2,5</option>
+                                        <option value="default">3</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="row">
-                        <div class="col-4">
-                            <label for="peopleCount" class="">Количество человек</label>
-                            <input type="number" min="1" max="20" class="form-control" name="peopleCount" id="peopleCount">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label for="persons" class="">Количество человек</label>
+                                    <input type="number" min="1" max="20" class="form-control" name="persons" id="persons">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="row">
-                        <div class="col-6">
-                            <span>Итоговая стоимость:&nbsp;<span class="text-orange" id="totalCostModal">1500</span>&nbsp;&#8381;</span>
+                        <div class="mb-3">
+                            <div class="row  mb-3">
+                                <div class="col-12">
+                                    <span>Дополнительные опции</span>
+                                </div>
+
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="row">
+                                        <div class="col-1">
+                                            <input type="checkbox" class="form-check-input" name="optionFirst" id="optionFirst">
+                                        </div>
+                                        <div class="col-11">
+                                            <label for="optionFirst" class="form-check-label">Быстрый выезд гида (в течение часа)</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="row">
+                                        <div class="col-1">
+                                            <input type="checkbox" class="form-check-input" name="optionSecond" id="optionSecond">
+                                        </div>
+                                        <div class="col-11">
+                                            <label for="optionSecond" class="form-check-label">Трансфер до ближайших станций метро после экскурсии</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-6">
+                                    <span>Итоговая стоимость:&nbsp;<span class="text-orange" id="price">1500</span>&nbsp;&#8381;</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn bg-orange text-white" data-bs-dismiss="modal" id="addOrderBtn">Отправить</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-            <button type="button" class="btn bg-orange text-white">Отправить</button>
-        </div>
-        </div>
-    </div>
     </div>
 
 
